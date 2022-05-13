@@ -1,0 +1,23 @@
+{
+  "name": "lambda-verify-youtube-public-videos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:local": "node -e \"require('./scripts/test-local.js')\";",
+    "test:local:watch": "watch --wait=0 'clear && npm run test:local'"
+  },
+  "keywords": [
+    "lambda",
+    "youtube",
+    "verify public videos"
+  ],
+  "author": "Felipe Marques <contato@felipemarques.com.br>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "tube-api": "^1.0.5",
+    "watch": "^1.0.2"
+  }
+}
