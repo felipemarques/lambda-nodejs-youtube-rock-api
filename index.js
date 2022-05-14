@@ -5,7 +5,7 @@ const YoutubeAPI = require('./src/YoutubeAPI');
 
 exports.handler = async (event) => {
 
-    consolelog('event: ', event);
+    console.log('event: ', event);
 
     const { videosList, hasInvalidPublicVideo } = await YoutubeAPI.verifyVideos();
     const message = process.env.ROCK_ALERT_MESSAGE || 'Ajuste a mensagem de alerta no .env'
