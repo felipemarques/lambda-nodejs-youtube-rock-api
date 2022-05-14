@@ -1,8 +1,8 @@
+const config = require('./config');
 const { Youtube } = require('tube-api');
 
-const YOUTUBE_API_KEY = 'AIzaSyBe6SNYMI4tzzT1TN8jvuPXdX2PFleShMU'
-//const YOUTUBE_CHANNEL_ID = 'UCn8zNIfYAQNdrFRrr8oibKw';
-const YOUTUBE_CHANNEL_ID = 'UC-Xx8PAWbWCqra16G782EfQ'; // MM Tech channel youtube
+const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || 'setup your api key'
+const YOUTUBE_CHANNEL_ID = process.env.YOUTUBE_CHANNEL_ID || 'UC-Xx8PAWbWCqra16G782EfQ'; // MM Tech channel youtube
 
 const ytube = new Youtube(YOUTUBE_API_KEY);
 

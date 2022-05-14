@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "tube-api": "^1.0.5",
     "watch": "^1.0.2"
   }

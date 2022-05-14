@@ -1,3 +1,4 @@
+const config = require('./src/config');
 const Utils = require('./src/Utils');
 const RockAPI = require('./src/RockAPI');
 const YoutubeAPI = require('./src/YoutubeAPI');
