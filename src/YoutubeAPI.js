@@ -34,9 +34,9 @@ class YoutubeAPI {
         const videosList = await this.videosList(details)
         
         // ADD here the allowed videos on MM Youtube channel
-        const allowedVideos = [
-            '0oF1kgT_AGk' // Talentfy Logo animation
-        ]
+        const allowedVideos = (process.env.YOUTUBE_ALLOWED_VIDEOS || []).split(',')
+
+        console.log('allowed videos:', allowedVideos)
 
         let hasInvalidPublicVideo = false;
         for(let idx in videosList) {
@@ -48,8 +48,8 @@ class YoutubeAPI {
         }
     
         return { 
+            hasInvalidPublicVideo: hasInvalidPublicVideo,
             videosList, 
-            hasInvalidPublicVideo: hasInvalidPublicVideo 
         };
 
     }

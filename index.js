@@ -5,15 +5,21 @@ const YoutubeAPI = require('./src/YoutubeAPI');
 
 exports.handler = async (event) => {
 
+    consolelog('event: ', event);
+
     const { videosList, hasInvalidPublicVideo } = await YoutubeAPI.verifyVideos();
+    const message = process.env.ROCK_ALERT_MESSAGE || 'Ajuste a mensagem de alerta no .env'
 
     if (hasInvalidPublicVideo) {
-        RockAPI.sendMessage('Atenção! Existe um vídeo publico no canal da MM!! Verifique se está permitido, caso contrário mude a visibilidade do video para privado!')
+        await RockAPI.sendMessage(message)
     }
 
     return {
         statusCode: 200,
-        body: Utils.jsonStringify(videosList),
+        body: Utils.jsonStringify({
+            hasInvalidPublicVideo: hasInvalidPublicVideo,
+            videosList,
+        }),
     };
 };
 

@@ -8,6 +8,8 @@ class RockAPI {
 
     static async sendMessage(message){
         
+        console.log('sendMessage >>>>>> ');
+        
         const postData = {
             "text": message,
             "attr": "bold"
@@ -16,14 +18,21 @@ class RockAPI {
         const headers = {
             //'Authorization': 'Bearer xxx'
         }
+        
+        const URL = `${API_ROCK_BASE_URL}/webhook/bot?method=sendMessage&auth=${API_ROCK_TOKEN}`;
     
-        axios.post(
-            `${API_ROCK_BASE_URL}/webhook/bot?method=sendMessage&auth=${API_ROCK_TOKEN}`, 
+        await axios.post(
+            URL, 
             postData, 
             headers
         ).then((response) => {        
             console.log(response.data)
-        })
+        }).catch((error) => {
+            console.error(error)
+        });
+        
+        console.log('RockAPI >>> URL: ', URL)
+        console.log('RockAPI >>> postData: ', postData)
 
     }
 

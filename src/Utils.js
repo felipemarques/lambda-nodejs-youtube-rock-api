@@ -1,8 +1,16 @@
 class Utils {
 
     static jsonStringify(obj) {
-        let jsonString = JSON.stringify(obj);
-        return JSON.stringify(JSON.parse(jsonString),null,2);
+        let jsonString = '';
+        
+        if (process.env.NODE_ENV == 'development') {
+            jsonString = JSON.stringify(obj);
+            jsonString = JSON.stringify(JSON.parse(jsonString),null,2);
+        } else {
+            jsonString = JSON.stringify(obj);
+        }
+
+        return jsonString;
     }
 
 }
